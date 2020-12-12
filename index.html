@@ -1,53 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-
+  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 
-    <title>😎 Ray's Site</title>
+    <title>Does This Work?</title>
 
     <style>
-        .top-buffer { margin-top:40px; margin-bottom:40px;}
-
-        canvas {
-            padding-left: 0;
-            padding-right: 0;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            width: 1000px;
-            border:1px solid #000000;
+        body {
+          background-image: 'C:\Users\rayle\Downloads\Slippery.png';
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
         }
-
+        div {
+            background-color: "transparent";
+        }
     </style>
 
-</head>
-<body>
-
-    <div class="container">
-        <div class="row top-buffer">
-            <div class="col">
-                <img style="width: 130px;height: 130px;" src="/Images/Ray-To-The-Left.png" class="rounded float-left" alt="A Man Pointing to the Left">
+  </head>
+  <body style="background-image: url('C:\\Users\\rayle\\Downloads\\Slippery.png');">
+    <div class="container-fluid" >
+        <div class="row padding">
+            <div class="col-md-12">
+                <div class="page-header text-center">
+                    <span class="border-0 fancy">
+                        Raymond Lennon - <small>Projects, etc.</small>
+                    </span>
+                </div>
             </div>
-            <div class="col-6">
-                <h1 class="text-center">Hello! This is Ray's Site.</h1>
+        </div>
+        <div class="row padding">
+            <div class="col-md-6 text-center">
+                    <img class="w-50 d-inline-block" src="C:\Users\rayle\Downloads\Ringo.png" />
             </div>
-            <div class="col">
-                <img style="width: 130px;height: 130px;" src="/Images/Ray-To-The-Right.png" class="rounded float-right" alt="A Man Pointing to the Right">
+            <div class="col-md-6 text-center">
+                <span class="border-0 fancy">
+                    COVID-19 EMR & Database Prototype
+                </span>
+                <p>
+                    <br><br>Developed over 30 hours for Hack for Good's HackDuke 2020 event - a <br>
+                    JavaFX interface for logging COVID-19 patient data, test results,<br> statistics, hospital records, etc.
+                </p>
+                <p>
+                    <a class="btn" target="_blank" href="https://github.com/raylennon/MRCOVID">GitHub »</a>
+                </p>
             </div>
-        </div>     
-            <canvas id="myCanvas">
-            </canvas>   
-    </div>
+        </div>
+        <div class="row padding">
+            <div class="col-md-6 text-center">
+                    <img class="w-50 d-inline-block" src="C:\Users\rayle\Downloads\Roomba.png" />
+            </div>
+            <div class="col-md-6 text-center">
+                <span class="border-0 fancy">
+                    Raspberry Pi Dead Reckoning Interface
+                </span>
+                <p>
+                    <br><br>
+                    Tracks ROV position over time via <br> 
+                    two encoders & differential drive equations.
+                </p>
+                <p>
+                    <a class="btn" target="_blank" href="https://github.com/EGR101-SeaweedRoomba/SeaweedRoomba">GitHub »</a>
+                </p>
+            </div>
+        </div>
+        
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    <script src="/static/js/rungame.js"></script>
-
-</body>
-</html>
+    </body>
+</html>    
