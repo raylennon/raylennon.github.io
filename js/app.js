@@ -8,7 +8,7 @@ var image = new Image();
 image.src = "img/background.png";
 
 function init() {
-  stage = new createjs.Stage("demoCanvas");
+  stage = new createjs.Stage("c");
   var background = new createjs.Bitmap(image);
   stage.addChild(background);
   stage.addChild(text);
