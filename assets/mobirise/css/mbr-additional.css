@@ -727,12 +727,12 @@ a {
   }
 }
 .cid-sGjRM3bHqd {
-  padding-top: 90px;
-  padding-bottom: 120px;
-  background-color: #383838;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .cid-sGjRM3bHqd .media-container-row {
   justify-content: space-between;
+  justify-content: center;
 }
 .cid-sGjRM3bHqd .text-content {
   max-width: 50%;
