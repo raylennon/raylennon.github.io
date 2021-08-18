@@ -13,7 +13,7 @@
 <body>
     <script type="module">
         import * as THREE from 'https://threejs.org/build/three.module.js';
-        import { OBJLoader } from 'https://threejs.org/examples/jsm/loaders/OBJLoader.js';
+        import { OBJLoader } from 'https://threejs.org/examples/jsm/loaders/STLLoader.js';
         let camera, scene, renderer;
 
         const mouse = new THREE.Vector2();
@@ -30,7 +30,7 @@
 
         scene = new THREE.Scene();
 
-        const loader = new OBJLoader();
+        const loader = new STLLoader();
         loader.load(
             // resource URL
             'assets/room.obj',
