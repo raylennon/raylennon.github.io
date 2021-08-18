@@ -74,14 +74,14 @@
 
         function onMouseMove( event ) {
 
-        mouse.x = ( event.clientX - windowHalf.x );
-        mouse.y = ( event.clientY - windowHalf.x );
+        mouse.x = ( event.clientX*0.3 - windowHalf.x );
+        mouse.y = ( event.clientY*0.3 - windowHalf.x );
 
         }
 
         function onMouseWheel( event ) {
 
-        camera.position.z += event.deltaY * 0.1; // move camera along z-axis
+        camera.position.z += event.deltaY * 0.8; // move camera along z-axis
 
         }
 
