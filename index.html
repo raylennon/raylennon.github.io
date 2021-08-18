@@ -1,98 +1,111 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
 
+<html lang="en">
 <head>
-    <!-- Site made with Mobirise Website Builder v5.3.10, https://mobirise.com -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="generator" content="Mobirise v5.3.10, mobirise.com">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <link rel="shortcut icon" href="assets/images/logo5.png" type="image/x-icon">
-    <meta name="description" content="">
 
+    <title>3D Testing</title>
 
-    <title>Home</title>
-    <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
-    <link rel="stylesheet" href="assets/tether/tether.min.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="assets/socicon/css/styles.css">
-    <link rel="stylesheet" href="assets/theme/css/style.css">
-    <link rel="preload"
-        href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"
-        as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap">
-    </noscript>
-    <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
-    <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-
-
-
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+    <script type="module">
+        import * as THREE from 'https://threejs.org/build/three.module.js';
+        import { OBJLoader } from 'https://threejs.org/examples/jsm/loaders/OBJLoader.js';
+        let camera, scene, renderer;
 
-    <section class="header1 cid-s48MCQYojq mbr-fullscreen mbr-parallax-background" id="header1-f">
+        const mouse = new THREE.Vector2();
+        const target = new THREE.Vector2();
+        const windowHalf = new THREE.Vector2( window.innerWidth / 2, window.innerHeight / 2 );
 
+        init();
+        animate();
 
+        function init() {
 
-        <div class="mbr-overlay" style="opacity: 0.4; background-color: rgb(0, 0, 0);"></div>
+        camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 500 );
+        camera.position.z = 50;
 
-        <div class="align-center container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-12">
-                    <h1 class="mbr-section-title mbr-fonts-style mb-3 display-1"><strong>Hi! I'm Ray.</strong></h1>
+        scene = new THREE.Scene();
 
-                    <p class="mbr-text mbr-fonts-style display-7">Duke Student, Engineer, Artist, Programmer</p>
-                    <div class="contacts4 cid-sGjRM3bHqd">
-                        <div class="row align-items-center justify-content-center">
+        const loader = new OBJLoader();
+        loader.load(
+            // resource URL
+            'assets/room.obj',
+            // called when resource is loaded
+            function ( object ) {
 
-                            <div class="icons d-flex align-items-center col-16 flex-wrap">
-                                <a href="https://github.com/raylennon/" target="_blank">
-                                    <span class="mbr-iconfont mbr-iconfont-social socicon-github socicon"></span>
-                                </a>
-                                <a href="https://www.linkedin.com/in/ray-lennon-55a2331b4/" target="_blank">
-                                    <span class="mbr-iconfont mbr-iconfont-social socicon-linkedin socicon"></span>
-                                </a>
-                                <a href="mailto:ray.lennon@duke.edu">
-                                    <span class="mbr-iconfont mbr-iconfont-social socicon-mail socicon"></span>
-                                </a>
-                                <a href="https://www.instagram.com/ray_y__/" target="_blank">
-                                    <span class="mbr-iconfont mbr-iconfont-social socicon-instagram socicon"></span>
-                                </a>
-                                <a href="http://scholar.google.com" target="_blank">
-                                    <span class="mbr-iconfont mbr-iconfont-social socicon-googlescholar socicon"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mbr-section-btn mt-3"><a class="btn btn-warning display-4" href="page1.html"><span
-                                class="mobi-mbri mobi-mbri-rocket mbr-iconfont mbr-iconfont-btn"></span>Fly Around</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section
-        style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;">
-        <a style="flex: 1 1; height: 0rem; padding-left: 1rem;"></a>
-        <p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/c"
-                style="color:#aaa;"></a></p>
-    </section>
-    <script src="assets/web/assets/jquery/jquery.min.js"></script>
-    <script src="assets/popper/popper.min.js"></script>
-    <script src="assets/tether/tether.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/smoothscroll/smooth-scroll.js"></script>
-    <script src="assets/parallax/jarallax.min.js"></script>
-    <script src="assets/sociallikes/social-likes.js"></script>
-    <script src="assets/theme/js/script.js"></script>
+                const wireframe = new THREE.WireframeGeometry( object );
+                const lines = new THREE.LineSegments( wireframe );
 
+                scene.add( lines );
 
+            },
+            // called when loading is in progresses
+            function ( xhr ) {
+
+                console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+            },
+            // called when loading has errors
+            function ( error ) {
+
+                console.log( 'An error happened' );
+
+            }
+        );
+
+        renderer = new THREE.WebGLRenderer( { antialias: true } );
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        document.body.appendChild( renderer.domElement );
+
+        document.addEventListener( 'mousemove', onMouseMove, false );
+        document.addEventListener( 'wheel', onMouseWheel, false );
+        window.addEventListener( 'resize', onResize, false );
+
+        }
+
+        function onMouseMove( event ) {
+
+        mouse.x = ( event.clientX - windowHalf.x );
+        mouse.y = ( event.clientY - windowHalf.x );
+
+        }
+
+        function onMouseWheel( event ) {
+
+        camera.position.z += event.deltaY * 0.1; // move camera along z-axis
+
+        }
+
+        function onResize( event ) {
+
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        windowHalf.set( width / 2, height / 2 );
+
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize( width, height );
+                    
+        }
+
+        function animate() {
+
+        target.x = ( 1 - mouse.x ) * 0.002;
+        target.y = ( 1 - mouse.y ) * 0.002;
+
+        camera.rotation.x += 0.05 * ( target.y - camera.rotation.x );
+        camera.rotation.y += 0.05 * ( target.x - camera.rotation.y );
+
+        requestAnimationFrame( animate );
+        renderer.render( scene, camera );
+
+        }
+
+    </script>
 </body>
-
 </html>
