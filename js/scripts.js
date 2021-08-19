@@ -31,7 +31,6 @@ import * as THREE from 'https://threejs.org/build/three.module.js';
                 lines.material.transparent = true;
 
                 scene.add(lines);
-                scene.add(object);
 
             },
             // called when loading is in progresses
