@@ -14,7 +14,7 @@ body {
   align-items: center;
 }
 
-.artifactColumn {
+canvas {
   z-index : -9999;
   position: absolute;
   top : 0;
