@@ -64,12 +64,6 @@ import * as THREE from 'https://threejs.org/build/three.module.js';
 
         }
 
-        function onMouseWheel( event ) {
-
-        camera.position.z += event.deltaY * 0.1; // move camera along z-axis
-
-        }
-
         function onResize( event ) {
 
         const width = window.innerWidth;
