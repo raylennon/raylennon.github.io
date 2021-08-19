@@ -1,8 +1,26 @@
 body {
-    margin: 0;
-    overflow: hidden;
+  min-height: 100%;
+}
+.jumbotron {
+  height:100%;
+  width:100%;
 }
 
-canvas {
-  display: block;
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+.artifactColumn {
+  z-index : -9999;
+  position: absolute;
+  top : 0;
+  left    : 0;
+  width   : 100%;
+  height  : 100%;
+  margin  : 0;
+  padding : 0;
 }
