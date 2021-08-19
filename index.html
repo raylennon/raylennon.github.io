@@ -26,7 +26,7 @@
         function init() {
 
         camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 500 );
-        camera.position.z = 8;
+        camera.position.z = 12;
 
         scene = new THREE.Scene();
         scene.background = new THREE.Color( 0x292929 );
@@ -103,8 +103,8 @@
         target.x = ( 1 - mouse.x ) * 0.002;
         target.y = ( 1 - mouse.y ) * 0.002;
 
-        camera.rotation.x += 0.05 * ( target.y - camera.rotation.x );
-        camera.rotation.y += 0.05 * ( target.x - camera.rotation.y );
+        camera.rotation.x += 0.01 * ( target.y - camera.rotation.x );
+        camera.rotation.y += 0.01 * ( target.x - camera.rotation.y );
 
         requestAnimationFrame( animate );
         renderer.render( scene, camera );
