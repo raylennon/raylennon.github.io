@@ -52,7 +52,6 @@ import * as THREE from 'https://threejs.org/build/three.module.js';
         document.body.appendChild( renderer.domElement );
 
         document.addEventListener( 'mousemove', onMouseMove, false );
-        document.addEventListener( 'wheel', onMouseWheel, false );
         window.addEventListener( 'resize', onResize, false );
 
         }
