@@ -1,91 +1,93 @@
-import * as THREE from 'https://threejs.org/build/three.module.js';
-        import { STLLoader } from 'https://threejs.org/examples/jsm/loaders/STLLoader.js';
-        let camera, scene, renderer;
+import * as THREE from 'three';
 
-        const mouse = new THREE.Vector2();
-        const target = new THREE.Vector2();
-        const windowHalf = new THREE.Vector2( window.innerWidth / 2, window.innerHeight / 2 );
+console.log("okay...");
 
-        init();
-        animate();
+import { STLLoader } from '../js/STLLoader.js';
+let camera, scene, renderer;
 
-        function init() {
+const mouse = new THREE.Vector2();
+const target = new THREE.Vector2();
+const windowHalf = new THREE.Vector2( window.innerWidth / 2, window.innerHeight / 2 );
 
-        camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 500 );
-        camera.position.z = 12;
+init();
+animate();
 
-        scene = new THREE.Scene();
-        scene.background = new THREE.Color( 0x292929 );
-        const loader = new STLLoader();
-        loader.load(
-            // resource URL
-            'assets/room.stl',
-            // called when resource is loaded
-            function ( object ) {
+function init() {
 
-                const wireframe = new THREE.WireframeGeometry( object );
-                const lines = new THREE.LineSegments( wireframe );
-                lines.material.color.setHex( 0xf7cd60 );
-                lines.material.depthTest = false;
-                lines.material.opacity = 0.25;
-                lines.material.transparent = true;
+camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 500 );
+camera.position.z = 12;
 
-                scene.add(lines);
+scene = new THREE.Scene();
+scene.background = new THREE.Color( 0x292929 );
+const loader = new STLLoader();
+loader.load(
+    // resource URL
+    'assets/room.stl',
+    // called when resource is loaded
+    function ( object ) {
 
-            },
-            // called when loading is in progresses
-            function ( xhr ) {
+        const wireframe = new THREE.WireframeGeometry( object );
+        const lines = new THREE.LineSegments( wireframe );
+        lines.material.color.setHex( 0xf7cd60 );
+        lines.material.depthTest = false;
+        lines.material.opacity = 0.25;
+        lines.material.transparent = true;
 
-                console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+        scene.add(lines);
 
-            },
-            // called when loading has errors
-            function ( error ) {
+    },
+    // called when loading is in progresses
+    function ( xhr ) {
 
-                console.log( 'An error happened' );
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 
-            }
-        );
+    },
+    // called when loading has errors
+    function ( error ) {
 
-        renderer = new THREE.WebGLRenderer( { canvas: artifactCanvas } );
-        renderer.setSize( window.innerWidth, window.innerHeight );
-        document.body.appendChild( renderer.domElement );
+        console.log( 'An error happened' );
 
-        document.addEventListener( 'mousemove', onMouseMove, false );
-        document.addEventListener( 'wheel', onMouseWheel, false );
-        window.addEventListener( 'resize', onResize, false );
+    }
+);
 
-        }
+renderer = new THREE.WebGLRenderer( { canvas: artifactCanvas } );
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
 
-        function onMouseMove( event ) {
+document.addEventListener( 'mousemove', onMouseMove, false );
+window.addEventListener( 'resize', onResize, false );
 
-        mouse.x = ( event.clientX - windowHalf.x );
-        mouse.y = ( event.clientY - windowHalf.x );
+}
 
-        }
+function onMouseMove( event ) {
 
-        function onResize( event ) {
+mouse.x = ( event.clientX - windowHalf.x );
+mouse.y = ( event.clientY - windowHalf.x );
 
-        const width = window.innerWidth;
-        const height = window.innerHeight;
+}
 
-        windowHalf.set( width / 2, height / 2 );
+function onResize( event ) {
 
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
-        renderer.setSize( width, height );
-                    
-        }
+const width = window.innerWidth;
+const height = window.innerHeight;
 
-        function animate() {
+windowHalf.set( width / 2, height / 2 );
 
-        target.x = ( 1 - mouse.x ) * 0.002;
-        target.y = ( 1 - mouse.y ) * 0.002;
+camera.aspect = width / height;
+camera.updateProjectionMatrix();
+renderer.setSize( width, height );
+            
+}
 
-        camera.rotation.x += 0.01 * ( target.y - camera.rotation.x );
-        camera.rotation.y += 0.01 * ( target.x - camera.rotation.y );
+function animate() {
 
-        requestAnimationFrame( animate );
-        renderer.render( scene, camera );
+target.x = ( 1 - mouse.x ) * 0.002;
+target.y = ( 1 - mouse.y ) * 0.002;
 
-        }
+camera.rotation.x += 0.01 * ( target.y - camera.rotation.x );
+camera.rotation.y += 0.01 * ( target.x - camera.rotation.y );
+
+requestAnimationFrame( animate );
+renderer.render( scene, camera );
+
+}
