@@ -9,20 +9,29 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href="css/styles.css">
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
 
 
     <title>Raymond Lennon</title>
 </head>
 
+<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+<script type="importmap">
+{
+    "imports": {
+    "three": "https://unpkg.com/three@0.145.0/build/three.module.js"
+    }
+}
+</script>
+<script type="module" src="/js/scripts.js">
+</script>
+
+
 <body>
-
-    <canvas id="artifactCanvas" width="100%" height="100%" style="position: absolute">
-    </canvas>
-
-    <div class="jumbotron vertical-center">
+    <canvas></canvas>
+    <div class="vertical-center">
         <div class="container text-center">
-            <h1 style="color:#f7cd60">Raymond Lennon</h1>
+            <h1 style="color:#f7cd60; background-color: rgba(255, 255, 255, 0.2);">Raymond Lennon</h1>
             <div class="row justify-content-center">
                 <div class="col-4"></div>
                 <div class="col">
@@ -65,18 +74,6 @@
             </div>
         </div>
     </div>
-
-    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
-    <script type="importmap">
-    {
-        "imports": {
-        "three": "https://unpkg.com/three@0.145.0/build/three.module.js"
-        }
-    }
-    </script>
-    <script type="module" src="/js/scripts.js">
-    </script>
-
 </body>
 
 </html>
