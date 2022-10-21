@@ -9,17 +9,20 @@ const mouse = new THREE.Vector2();
 const target = new THREE.Vector2();
 const windowHalf = new THREE.Vector2( window.innerWidth / 2, window.innerHeight / 2 );
 
-init();
-animate();
-
 function init() {
 
 camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 500 );
 camera.position.z = 12;
 
+var canvas = document.querySelector("canvas");
+var renderer = new THREE.WebGLRenderer({canvas: canvas});
+renderer.setClearColor(0xF0F0F0);
+
+
 scene = new THREE.Scene();
 scene.background = new THREE.Color( 0x292929 );
 const loader = new STLLoader();
+
 loader.load(
     // resource URL
     'assets/room.stl',
@@ -50,10 +53,6 @@ loader.load(
     }
 );
 
-renderer = new THREE.WebGLRenderer( { canvas: artifactCanvas } );
-renderer.setSize( window.innerWidth, window.innerHeight );
-document.body.appendChild( renderer.domElement );
-
 document.addEventListener( 'mousemove', onMouseMove, false );
 window.addEventListener( 'resize', onResize, false );
 
@@ -66,21 +65,19 @@ mouse.y = ( event.clientY - windowHalf.x );
 
 }
 
-function onResize( event ) {
-
-const width = window.innerWidth;
-const height = window.innerHeight;
-
-windowHalf.set( width / 2, height / 2 );
-
-camera.aspect = width / height;
-camera.updateProjectionMatrix();
-renderer.setSize( width, height );
-            
-}
+function resize() {
+    var width = canvas.clientWidth;
+    var height = canvas.clientHeight;
+    if (width != canvas.width || height != canvas.height) {
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    }
+  }3
 
 function animate() {
 
+resize();
 target.x = ( 1 - mouse.x ) * 0.002;
 target.y = ( 1 - mouse.y ) * 0.002;
 
@@ -91,3 +88,7 @@ requestAnimationFrame( animate );
 renderer.render( scene, camera );
 
 }
+
+
+init();
+animate();
