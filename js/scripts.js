@@ -1,28 +1,26 @@
 import * as THREE from 'three';
 
-console.log("okay...");
-
 import { STLLoader } from '../js/STLLoader.js';
-let camera, scene, renderer;
+import { TrackballControls } from '../js/TrackballControls.js';
 
-const mouse = new THREE.Vector2();
-const target = new THREE.Vector2();
-const windowHalf = new THREE.Vector2( window.innerWidth / 2, window.innerHeight / 2 );
-
-function init() {
-
-camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 500 );
-camera.position.z = 12;
+var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 500 );
+camera.position.set(8.849704681658944,-7.975324354635025,9.551292802281095);
+camera.quaternion.set(0.5975724343883114,-0.06456188236289945, -0.06762232092697967);
+camera.up.set(-0.332123346226811, 0.5444934059228567, 0.7702084223102447);
+camera.zoom =1;
 
 var canvas = document.querySelector("canvas");
+
+var scene = new THREE.Scene();
+scene.background = new THREE.Color( 0x292929 );
+scene.add(camera);
+
 var renderer = new THREE.WebGLRenderer({canvas: canvas});
 renderer.setClearColor(0xF0F0F0);
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize( window.innerWidth, window.innerHeight );
 
-
-scene = new THREE.Scene();
-scene.background = new THREE.Color( 0x292929 );
 const loader = new STLLoader();
-
 loader.load(
     // resource URL
     'assets/room.stl',
@@ -34,7 +32,7 @@ loader.load(
         lines.material.color.setHex( 0xf7cd60 );
         lines.material.depthTest = false;
         lines.material.opacity = 0.25;
-        lines.material.transparent = true;
+        lines.material.transparent = false;
 
         scene.add(lines);
 
@@ -53,17 +51,12 @@ loader.load(
     }
 );
 
-document.addEventListener( 'mousemove', onMouseMove, false );
-window.addEventListener( 'resize', onResize, false );
+var controls = new TrackballControls( camera, renderer.domElement);
+controls.rotateSpeed = 10.0;
+controls.zoomSpeed = 1.2;
+controls.panSpeed = 0.8;
 
-}
-
-function onMouseMove( event ) {
-
-mouse.x = ( event.clientX - windowHalf.x );
-mouse.y = ( event.clientY - windowHalf.x );
-
-}
+window.addEventListener( 'resize', resize, false );
 
 function resize() {
     var width = canvas.clientWidth;
@@ -77,18 +70,10 @@ function resize() {
 
 function animate() {
 
-resize();
-target.x = ( 1 - mouse.x ) * 0.002;
-target.y = ( 1 - mouse.y ) * 0.002;
-
-camera.rotation.x += 0.01 * ( target.y - camera.rotation.x );
-camera.rotation.y += 0.01 * ( target.x - camera.rotation.y );
-
-requestAnimationFrame( animate );
-renderer.render( scene, camera );
-
+    requestAnimationFrame( animate );
+    controls.update();
+    console.log(camera);
+    renderer.render( scene, camera );
 }
 
-
-init();
 animate();
